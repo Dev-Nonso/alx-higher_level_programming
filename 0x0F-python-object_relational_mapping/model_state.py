@@ -1,19 +1,20 @@
 #!/usr/bin/python3
-"""Moduls that define the state Class representing a state in Mysql database"""
+"""Module that defines the State class representing a state in MySQL database"""
 
-from sqlalchemy import column, integer, string, metaData
+from sqlalchemy import Column, Integer, String, MetaData
 from sqlalchemy.ext.declarative import declarative_base
 
-mymetadate = metaDate()
-Base = declarative_base(metaData=mymetadata)
+mymetadata = MetaData()
+Base = declarative_base(metadata=mymetadata)
 
 class State(Base):
-    """Representing a state for Mysql database
-    __taablename__(str): the name of the Mysql table to store states.
-    id(sqlalchemy.integer): the state id.
-    name(sqlalchemy.string): the state name.
+    """Representing a state for MySQL database
+    
+    __tablename__ (str): the name of the MySQL table to store states.
+    id (sqlalchemy.Integer): the state id.
+    name (sqlalchemy.String): the state name.
     """
 
     __tablename__ = "states"
-    id = column(integer, unique=True, nullable=False, primary_key=True)
-    name = column(string(128), nullable=False)
+    id = Column(Integer, unique=True, nullable=False, primary_key=True)
+    name = Column(String(128), nullable=False)
