@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 """Moduls that define the state Class representing a state in Mysql database"""
 
-from sqlalchemy import column, integer, string
+from sqlalchemy import column, integer, string, metaData
 from sqlalchemy.ext.declarative import declarative_base
 
-Base = declarative_base()
+mymetadate = metaDate()
+Base = declarative_base(metaData=mymetadata)
 
 class State(Base):
     """Representing a state for Mysql database
@@ -14,5 +15,5 @@ class State(Base):
     """
 
     __tablename__ = "states"
-    id = column(integer, primary_key=True)
+    id = column(integer, unique=True, nullable=False, primary_key=True)
     name = column(string(128), nullable=False)
