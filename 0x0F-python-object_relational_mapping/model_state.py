@@ -13,6 +13,6 @@ class State(Base):
     name(sqlalchemy.string): the state name.
     """
 
-    __tablename__ = "State"
+    __tablename__ = "states"
     id = column(integer, primary_key=True)
     name = column(string(128), nullable=False)
