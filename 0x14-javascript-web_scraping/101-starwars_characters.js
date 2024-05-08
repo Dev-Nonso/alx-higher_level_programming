@@ -28,3 +28,17 @@ request(apiUrl, function (error, response, body) {
             reject(new Error(`Error fetching character data: ${charError}`));
           }
         });
+      });
+    });
+
+    Promise.all(characterPromises)
+      .then((characterNames) => {
+        console.log(characterNames.join('\n'));
+      })
+      .catch((error) => {
+        console.error(error.message);
+      });
+  } else {
+    console.error('Error fetching movie data:', error);
+  }
+});
